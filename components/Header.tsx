@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Search, ShoppingCart } from "lucide-react";
 // import { UserMenu } from "./user-menu";
 // import { useAuth } from "@/lib/auth"
@@ -40,7 +40,7 @@ export function Header() {
 
           {/* Cart */}
           <div className="flex items-center gap-2">
-            <Button variant="primary">
+            <Button variant="ghost">
               <ShoppingCart className="h-5 w-5" />
             </Button>
           </div>
