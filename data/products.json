@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Wireless Mouse",
+    "price": 1299,
+    "stock_quantity": 150,
+    "category": "Electronics",
+    "status": "Active",
+    "vendor": "TechNova"
+  },
+  {
+    "name": "Yoga Mat Pro",
+    "price": 899,
+    "stock_quantity": 80,
+    "category": "Fitness",
+    "status": "Active",
+    "vendor": "FitZone"
+  },
+  {
+    "name": "Cotton T-Shirt",
+    "price": 499,
+    "stock_quantity": 300,
+    "category": "Apparel",
+    "status": "Active",
+    "vendor": "StyleHub"
+  },
+  {
+    "name": "Bluetooth Speaker",
+    "price": 2499,
+    "stock_quantity": 60,
+    "category": "Electronics",
+    "status": "Active",
+    "vendor": "SoundWave"
+  },
+  {
+    "name": "Ceramic Mug",
+    "price": 299,
+    "stock_quantity": 200,
+    "category": "Home & Kitchen",
+    "status": "Active",
+    "vendor": "MugCraft"
+  },
+  {
+    "name": "Running Shoes",
+    "price": 3499,
+    "stock_quantity": 120,
+    "category": "Footwear",
+    "status": "Active",
+    "vendor": "StrideX"
+  },
+  {
+    "name": "Leather Wallet",
+    "price": 999,
+    "stock_quantity": 75,
+    "category": "Accessories",
+    "status": "Active",
+    "vendor": "UrbanCraft"
+  },
+  {
+    "name": "Gaming Keyboard",
+    "price": 3999,
+    "stock_quantity": 40,
+    "category": "Electronics",
+    "status": "Active",
+    "vendor": "KeyBlaze"
+  },
+  {
+    "name": "Smart LED Bulb",
+    "price": 699,
+    "stock_quantity": 180,
+    "category": "Home Automation",
+    "status": "Active",
+    "vendor": "BrightTech"
+  },
+  {
+    "name": "Notebook Pack",
+    "price": 249,
+    "stock_quantity": 500,
+    "category": "Stationery",
+    "status": "Active",
+    "vendor": "PaperNest"
+  },
+  {
+    "name": "Protein Shaker",
+    "price": 599,
+    "stock_quantity": 90,
+    "category": "Fitness",
+    "status": "Active",
+    "vendor": "FitZone"
+  },
+  {
+    "name": "Sunglasses UV400",
+    "price": 1499,
+    "stock_quantity": 110,
+    "category": "Accessories",
+    "status": "Active",
+    "vendor": "SunGuard"
+  },
+  {
+    "name": "Mini Tripod",
+    "price": 799,
+    "stock_quantity": 65,
+    "category": "Photography",
+    "status": "Active",
+    "vendor": "SnapPro"
+  },
+  {
+    "name": "Essential Oil Diffuser",
+    "price": 1599,
+    "stock_quantity": 70,
+    "category": "Home & Kitchen",
+    "status": "Active",
+    "vendor": "AromaLife"
+  },
+  {
+    "name": "Laptop Stand",
+    "price": 1199,
+    "stock_quantity": 130,
+    "category": "Office Supplies",
+    "status": "Active",
+    "vendor": "ErgoTech"
+  },
+  {
+    "name": "Digital Watch",
+    "price": 1999,
+    "stock_quantity": 95,
+    "category": "Accessories",
+    "status": "Active",
+    "vendor": "TimeCore"
+  },
+  {
+    "name": "Wireless Earbuds",
+    "price": 3499,
+    "stock_quantity": 50,
+    "category": "Electronics",
+    "status": "Active",
+    "vendor": "SoundWave"
+  },
+  {
+    "name": "Desk Organizer",
+    "price": 699,
+    "stock_quantity": 140,
+    "category": "Office Supplies",
+    "status": "Active",
+    "vendor": "DeskMate"
+  },
+  {
+    "name": "Canvas Backpack",
+    "price": 1799,
+    "stock_quantity": 85,
+    "category": "Apparel",
+    "status": "Active",
+    "vendor": "StyleHub"
+  },
+  {
+    "name": "Resistance Bands Set",
+    "price": 999,
+    "stock_quantity": 100,
+    "category": "Fitness",
+    "status": "Active",
+    "vendor": "FitZone"
+  }
+]
