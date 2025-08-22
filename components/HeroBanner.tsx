@@ -14,7 +14,7 @@ export function HeroBanner() {
             <br />
             ensuring a durable and long-lasting product.
           </h1>
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+          <Button size="lg" className="bg-blue-900 hover:bg-blue-800">
             Buy Now
           </Button>
         </div>
