@@ -100,7 +100,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(response);
   } catch (error) {
-    console.error("[v0] Products API error:", error);
+    console.error(" Products API error:", error);
 
     if (error instanceof Error && "issues" in error) {
       return NextResponse.json(
@@ -134,7 +134,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(newProduct, { status: 201 });
   } catch (error) {
-    console.error("[v0] Product creation error:", error);
+    console.error(" Product creation error:", error);
 
     if (error instanceof Error && "issues" in error) {
       return NextResponse.json(

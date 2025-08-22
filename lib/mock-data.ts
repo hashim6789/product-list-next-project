@@ -12,7 +12,8 @@ export const mockProducts: Product[] = [
     price: 299.99,
     stock: 45,
     status: "active",
-    imageUrl: "/placeholder-dvmp6.png",
+    imageUrl: "/yellow-hard-hat-construction.png",
+    // imageUrl: "/placeholder-dvmp6.png",
     isNew: true,
     safetyRating: "CE Certified",
     supplier: "3M Safety",
@@ -30,7 +31,8 @@ export const mockProducts: Product[] = [
     price: 24.99,
     stock: 120,
     status: "active",
-    imageUrl: "/yellow-hard-hat-construction.png",
+    imageUrl: "/public/yellow-hard-hat-construction.png",
+    // imageUrl: "/yellow-hard-hat-construction.png",
     safetyRating: "ANSI Z89.1",
     supplier: "MSA Safety",
     createdAt: "2024-01-14T09:30:00Z",
@@ -47,7 +49,8 @@ export const mockProducts: Product[] = [
     price: 89.99,
     stock: 78,
     status: "active",
-    imageUrl: "/gray-respirator-mask.png",
+    imageUrl: "/public/yellow-hard-hat-construction.png",
+    // imageUrl: "/gray-respirator-mask.png",
     safetyRating: "NIOSH Approved",
     supplier: "3M Safety",
     createdAt: "2024-01-13T14:20:00Z",
@@ -64,7 +67,8 @@ export const mockProducts: Product[] = [
     price: 0,
     stock: 200,
     status: "active",
-    imageUrl: "/white-work-gloves.png",
+    // imageUrl: "/white-work-gloves.png",
+    imageUrl: "/public/yellow-hard-hat-construction.png",
     safetyRating: "ANSI A4",
     supplier: "SafetyFirst Inc",
     createdAt: "2024-01-12T11:45:00Z",
@@ -175,74 +179,77 @@ export const mockProducts: Product[] = [
 ];
 
 // Generate additional mock products to reach ~50 items
-const additionalProducts: Product[] = Array.from({ length: 40 }, (_, index) => {
-  const categories = [
-    "Personal Protective Equipment",
-    "Emergency Equipment",
-    "Fire Safety Equipment",
-    "Industrial Tools",
-    "Safety Signage",
-  ];
-  const subCategories = [
-    "Head Protection",
-    "Eye Protection",
-    "Hand Protection",
-    "Respiratory Protection",
-    "Body Protection",
-    "Foot Protection",
-    "First Aid",
-    "Emergency Lighting",
-    "Fire Extinguishers",
-    "Power Tools",
-    "Warning Signs",
-  ];
-  const businessTypes = [
-    "Supplier",
-    "Manufacturer",
-    "Distributor",
-    "Service Provider",
-  ];
-  const statuses: Product["status"][] = [
-    "active",
-    "active",
-    "active",
-    "inactive",
-    "out-of-stock",
-  ]; // Weighted towards active
+// const additionalProducts: Product[] = Array.from({ length: 40 }, (_, index) => {
+//   const categories = [
+//     "Personal Protective Equipment",
+//     "Emergency Equipment",
+//     "Fire Safety Equipment",
+//     "Industrial Tools",
+//     "Safety Signage",
+//   ];
+//   const subCategories = [
+//     "Head Protection",
+//     "Eye Protection",
+//     "Hand Protection",
+//     "Respiratory Protection",
+//     "Body Protection",
+//     "Foot Protection",
+//     "First Aid",
+//     "Emergency Lighting",
+//     "Fire Extinguishers",
+//     "Power Tools",
+//     "Warning Signs",
+//   ];
+//   const businessTypes = [
+//     "Supplier",
+//     "Manufacturer",
+//     "Distributor",
+//     "Service Provider",
+//   ];
+//   const statuses: Product["status"][] = [
+//     "active",
+//     "active",
+//     "active",
+//     "inactive",
+//     "out-of-stock",
+//   ]; // Weighted towards active
 
-  const category = categories[index % categories.length];
-  const subCategory = subCategories[index % subCategories.length];
-  const businessType = businessTypes[index % businessTypes.length];
-  const status = statuses[index % statuses.length];
+//   const category = categories[index % categories.length];
+//   const subCategory = subCategories[index % subCategories.length];
+//   const businessType = businessTypes[index % businessTypes.length];
+//   const status = statuses[index % statuses.length];
 
-  return {
-    id: (index + 11).toString(),
-    name: `Safety Product ${index + 11}`,
-    description: `Professional grade safety equipment designed for industrial use. Product ${
-      index + 11
-    } offers reliable protection and durability.`,
-    category,
-    subCategory,
-    businessType,
-    price: Math.round((Math.random() * 200 + 10) * 100) / 100,
-    stock: Math.floor(Math.random() * 200),
-    status,
-    imageUrl: `/placeholder.svg?height=200&width=200&query=safety equipment ${category.toLowerCase()}`,
-    isNew: Math.random() > 0.8,
-    safetyRating: [
-      "CE Certified",
-      "ANSI Approved",
-      "OSHA Compliant",
-      "ISO Certified",
-    ][index % 4],
-    supplier: `Supplier ${Math.floor(index / 5) + 1}`,
-    createdAt: new Date(
-      Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000
-    ).toISOString(),
-    updatedAt: new Date(
-      Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000
-    ).toISOString(),
-  };
-});
+//   return {
+//     id: (index + 11).toString(),
+//     name: `Safety Product ${index + 11}`,
+//     description: `Professional grade safety equipment designed for industrial use. Product ${
+//       index + 11
+//     } offers reliable protection and durability.`,
+//     category,
+//     subCategory,
+//     businessType,
+//     price: Math.round((Math.random() * 200 + 10) * 100) / 100,
+//     stock: Math.floor(Math.random() * 200),
+//     status,
+//     imageUrl: `/placeholder.svg?height=200&width=200&query=safety equipment ${category.toLowerCase()}`,
+//     isNew: Math.random() > 0.8,
+//     safetyRating: [
+//       "CE Certified",
+//       "ANSI Approved",
+//       "OSHA Compliant",
+//       "ISO Certified",
+//     ][index % 4],
+//     supplier: `Supplier ${Math.floor(index / 5) + 1}`,
+//     createdAt: new Date(
+//       Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000
+//     ).toISOString(),
+//     updatedAt: new Date(
+//       Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000
+//     ).toISOString(),
+//   };
+// });
 
-export const allMockProducts = [...mockProducts, ...additionalProducts];
+export const allMockProducts = [
+  ...mockProducts,
+  // ...additionalProducts
+];

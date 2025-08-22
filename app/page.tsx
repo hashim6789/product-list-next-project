@@ -1,7 +1,13 @@
 "use client";
 
+import {
+  AdvancedFilterSidebar,
+  AdvancedFilterSidebarSkeleton,
+} from "@/components/AdvancedFilterComponents";
 import { Header } from "@/components/Header";
 import { HeroBanner } from "@/components/HeroBanner";
+import { PaginationControls } from "@/components/PaginationControls";
+import { ProductGrid } from "@/components/ProductGrid";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -10,18 +16,54 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useAdvancedFilters } from "@/hooks/useAdvancedFilters";
+import { useFilterData } from "@/hooks/useFilterData";
 import { useProducts } from "@/hooks/useProducts";
-import { SortType } from "@/lib/types";
+import { Product, SortType } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 import { SlidersHorizontal, Grid, List } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function Home() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [showFilters, setShowFilters] = useState(true);
 
+  const {
+    selectedFilters,
+    priceRange,
+    stockRange,
+    dateRange,
+    searchQuery,
+    presets,
+    handleFilterChange,
+    handleClearAll,
+    handleSavePreset,
+    handleLoadPreset,
+    setPriceRange,
+    setStockRange,
+    setDateRange,
+    setSearchQuery,
+    getApiFilters,
+  } = useAdvancedFilters();
+
   const { products, loading, pagination, filters, updateFilters, error } =
     useProducts();
+
+  const { filterGroups, loading: filtersLoading } = useFilterData();
+
+  useEffect(() => {
+    const apiFilters = getApiFilters();
+    updateFilters(apiFilters);
+  }, [
+    selectedFilters,
+    priceRange,
+    stockRange,
+    dateRange,
+    searchQuery,
+    getApiFilters,
+    updateFilters,
+  ]);
 
   const handleSortChange = useCallback(
     (value: string) => {
@@ -33,6 +75,29 @@ export default function Home() {
     },
     [updateFilters]
   );
+
+  const handleEnquiry = useCallback((product: Product) => {
+    console.log(" Enquiry for product:", product.name);
+    // TODO: Implement enquiry modal/form
+    alert(`Enquiry sent for ${product.name}`);
+  }, []);
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <div className="container mx-auto px-4 py-8">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-red-600 mb-4">
+              Error Loading Products
+            </h2>
+            <p className="text-gray-600 mb-4">{error}</p>
+            <Button onClick={() => window.location.reload()}>Try Again</Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -97,6 +162,62 @@ export default function Home() {
                 </Select>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex gap-6">
+          {/* Advanced Filters Sidebar */}
+          {showFilters && (
+            <aside className="w-80 flex-shrink-0">
+              {filtersLoading ? (
+                <AdvancedFilterSidebarSkeleton />
+              ) : (
+                <AdvancedFilterSidebar
+                  filters={filterGroups}
+                  selectedFilters={selectedFilters}
+                  priceRange={priceRange}
+                  stockRange={stockRange}
+                  dateRange={dateRange}
+                  searchQuery={searchQuery}
+                  onFilterChange={handleFilterChange}
+                  onPriceRangeChange={setPriceRange}
+                  onStockRangeChange={setStockRange}
+                  onDateRangeChange={setDateRange}
+                  onSearchQueryChange={setSearchQuery}
+                  onClearAll={handleClearAll}
+                  onSavePreset={handleSavePreset}
+                  onLoadPreset={handleLoadPreset}
+                  presets={presets}
+                />
+              )}
+            </aside>
+          )}
+
+          {/* Products Grid */}
+          <div className="flex-1 space-y-6">
+            <ProductGrid
+              products={products}
+              onEnquiry={handleEnquiry}
+              isLoading={loading}
+              className={cn(
+                viewMode === "grid"
+                  ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                  : "grid-cols-1"
+              )}
+            />
+
+            {/* Pagination */}
+            {!loading && products.length > 0 && (
+              <PaginationControls
+                currentPage={pagination.page}
+                totalPages={pagination.totalPages}
+                pageSize={pagination.limit}
+                totalItems={pagination.total}
+                onPageChange={(page) => updateFilters({ page })}
+                onPageSizeChange={(limit) => updateFilters({ limit, page: 1 })}
+              />
+            )}
           </div>
         </div>
       </main>
