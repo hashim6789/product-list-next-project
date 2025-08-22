@@ -4,10 +4,14 @@ import {
   AdvancedFilterSidebar,
   AdvancedFilterSidebarSkeleton,
 } from "@/components/AdvancedFilterComponents";
+import ClientTestimonialSection from "@/components/ClientTestimonial";
+import Footer from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { HeroBanner } from "@/components/HeroBanner";
 import { PaginationControls } from "@/components/PaginationControls";
 import { ProductGrid } from "@/components/ProductGrid";
+import { ProductTabsHeader } from "@/components/ProductTabsHeader";
+import { StaticFilterSidebar } from "@/components/StaticFilterSidebar";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -28,6 +32,11 @@ import { useCallback, useEffect, useState } from "react";
 export default function Home() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [showFilters, setShowFilters] = useState(true);
+  const [activeTab, setActiveTab] = useState<"products" | "suppliers">(
+    "products"
+  );
+
+  const [sortValue, setSortValue] = useState("latest");
 
   const {
     selectedFilters,
@@ -108,7 +117,7 @@ export default function Home() {
           <HeroBanner />
         </div>
 
-        <div className="mb-6 space-y-4">
+        {/* <div className="mb-6 space-y-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <Button
@@ -163,12 +172,20 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Main Content */}
         <div className="flex gap-6">
+          {/* Static Filter Sidebar */}
+          <aside className="w-64 flex-shrink-0">
+            <StaticFilterSidebar
+              selectedFilters={selectedFilters}
+              onFilterChange={handleFilterChange}
+              onClearAll={handleClearAll}
+            />
+          </aside>
           {/* Advanced Filters Sidebar */}
-          {showFilters && (
+          {/* {showFilters && (
             <aside className="w-80 flex-shrink-0">
               {filtersLoading ? (
                 <AdvancedFilterSidebarSkeleton />
@@ -192,10 +209,19 @@ export default function Home() {
                 />
               )}
             </aside>
-          )}
+          )} */}
 
           {/* Products Grid */}
           <div className="flex-1 space-y-6">
+            <ProductTabsHeader
+              activeTab={activeTab}
+              onTabChange={setActiveTab}
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              sortValue={sortValue}
+              onSortChange={setSortValue}
+            />
+
             <ProductGrid
               products={products}
               onEnquiry={handleEnquiry}
@@ -221,6 +247,9 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      <ClientTestimonialSection />
+      <Footer />
     </div>
   );
 }
