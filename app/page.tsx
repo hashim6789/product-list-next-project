@@ -238,10 +238,10 @@ export default function Home() {
               <PaginationControls
                 currentPage={pagination.page}
                 totalPages={pagination.totalPages}
-                pageSize={pagination.limit}
-                totalItems={pagination.total}
+                // pageSize={pagination.limit}
+                // totalItems={pagination.total}
                 onPageChange={(page) => updateFilters({ page })}
-                onPageSizeChange={(limit) => updateFilters({ limit, page: 1 })}
+                // onPageSizeChange={(limit) => updateFilters({ limit, page: 1 })}
               />
             )}
           </div>

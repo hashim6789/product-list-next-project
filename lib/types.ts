@@ -19,7 +19,7 @@ export interface Product {
 export interface ProductFilters {
   page?: number;
   limit?: number;
-  sortBy?: keyof Product;
+  sortBy?: SortType;
   sortOrder?: "asc" | "desc";
   category?: string;
   subCategory?: string;

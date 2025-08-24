@@ -23,7 +23,7 @@ export function useProducts(options: UseProductsOptions = {}) {
   const [filters, setFilters] = useState<ProductFilters>({
     page: 1,
     limit: 12,
-    sortBy: "createdAt",
+    sortBy: "createdAt-desc",
     sortOrder: "desc",
     ...options.initialFilters,
   });
@@ -80,7 +80,7 @@ export function useProducts(options: UseProductsOptions = {}) {
     setFilters({
       page: 1,
       limit: 12,
-      sortBy: "createdAt",
+      sortBy: "createdAt-desc",
       sortOrder: "desc",
     });
   }, []);
